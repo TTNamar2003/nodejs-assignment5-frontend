@@ -14,7 +14,7 @@ export default function TaskForm({ setTasks }: TaskFormProps) {
   const [title, setTitle] = useState("");
 
   const addTask = async () => {
-    const res = await fetch("http://localhost:5000/api/tasks", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tasks`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title }),

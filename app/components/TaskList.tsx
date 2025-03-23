@@ -12,7 +12,9 @@ interface TaskListProps {
 
 export default function TaskList({ tasks, setTasks }: TaskListProps) {
   const deleteTask = async (id: string) => {
-    await fetch(`http://localhost:5000/api/tasks/${id}`, { method: "DELETE" });
+    await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tasks/${id}`, {
+      method: "DELETE",
+    });
     setTasks((prev) => prev.filter((task) => task.id !== id));
   };
 
